@@ -25,3 +25,5 @@ tasks.withType(JavaCompile) {
 tasks.withType(org.gradle.api.tasks.javadoc.Javadoc) {
     options.encoding = "UTF-8"
 }
+
+apply from:'./bintray.gradle'
