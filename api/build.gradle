@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+// Android和Java编译都要指定编码，默认是GBK
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+// Javadoc也需要指定编码
+tasks.withType(org.gradle.api.tasks.javadoc.Javadoc) {
+    options.encoding = "UTF-8"
+}
