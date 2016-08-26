@@ -1,3 +1,16 @@
+/*
+ * Copyright (C) 2015 THL A29 Limited, a Tencent company. All rights reserved.
+ *
+ * Licensed under the MIT License (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://opensource.org/licenses/MIT
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed
+ * under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
 package com.tencent.mig.tmq.keyword;
 
 import com.google.auto.service.AutoService;
@@ -41,17 +54,6 @@ public class KeywordProcessor extends AbstractProcessor {
     private Messager messager;
     private Map<Integer, Set<KeywordAnnotatedClass>> keyMap; // 每个AW都需要带权重
 
-    /**
-     * Initializes the processor with the processing environment by
-     * setting the {@code processingEnv} field to the value of the
-     * {@code processingEnv} argument.  An {@code
-     * IllegalStateException} will be thrown if this method is called
-     * more than once on the same object.
-     *
-     * @param processingEnv environment to access facilities the tool framework
-     * provides to the processor
-     * @throws IllegalStateException if this method is called more than once.
-     */
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
@@ -77,20 +79,6 @@ public class KeywordProcessor extends AbstractProcessor {
         return SourceVersion.latestSupported();
     }
 
-    /**
-     * Processes a set of annotation types on type elements originating from the prior round
-     * and returns whether or not these annotations are claimed by this processor.
-     * If true is returned, the annotations are claimed and subsequent processors will
-     * not be asked to process them;
-     * if false is returned, the annotations are unclaimed and subsequent processors may be
-     * asked to process them. A processor may always return the same boolean value
-     * or may vary the result based on chosen criteria.
-     * The input set will be empty if the processor supports "*" and the root elements
-     * have no annotations. A Processor must gracefully handle an empty set of annotations.
-     * @param annotations
-     * @param roundEnv
-     * @return
-     */
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         // 先统计KeywordPackage注解包中的类并记录，后面Keyword注解如果已被注解包包含，则略过不要重复了
