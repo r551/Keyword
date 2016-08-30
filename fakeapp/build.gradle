@@ -28,6 +28,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
 
     androidTestCompile 'com.squareup:javapoet:1.7.0'
-    androidTestCompile files('src/androidTest/libs/api.jar')
-    androidTestApt files('src/androidTest/libs/compiler.jar')
+//    androidTestCompile files('src/androidTest/libs/api.jar')
+//    androidTestApt files('src/androidTest/libs/compiler.jar')
+    androidTestCompile 'com.tencent.mig.tmq:keyword-api:1.0.1'
+    androidTestApt 'com.tencent.mig.tmq:keyword-compiler:1.0.1'
 }

@@ -37,8 +37,8 @@ apply plugin: 'com.neenbedankt.android-apt'
 ```groovy
 dependencies {
     // 在Android测试中使用的场景，要像下面这样分别配置Android测试的依赖和apt引用方式
-    androidTestCompile 'com.tencent.mig.tmq.keyword:api:1.0.0'
-    androidTestApt 'com.tencent.mig.tmq.keyword:compiler:1.0.0'
+    androidTestCompile 'com.tencent.mig.tmq:keyword-api:1.0.1'
+    androidTestApt 'com.tencent.mig.tmq:keyword-compiler:1.0.1'
 }
 ```
 4.在Android测试的场景下，别忘了在defaultConfig中配置测试执行器：
