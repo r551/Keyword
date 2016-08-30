@@ -6,20 +6,12 @@ import android.test.ApplicationTestCase;
 import com.tencent.mig.tmq.keyword.Command;
 
 /**
- * keyword使用demo
+ * 放置公共方法的父类
  */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    public ApplicationTest() {
+public abstract class AbsApplicationTest extends ApplicationTestCase<Application> {
+    public AbsApplicationTest() {
         super(Application.class);
     }
-
-    public void test1()
-    {
-        execute(K.AActionWord1);
-        execute(K.AActionWord2);
-        execute(K.Keyword1);
-    }
-
 
     /**
      * 执行各个配置的AW命令
