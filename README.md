@@ -1,17 +1,12 @@
 # Keyword
 #### Headers
-Keyword是腾讯TMQ旗下一个简单的关键字驱动测试的辅助组件，其封装了关键字所需要实现的Command接口及注解，通过在包上或关键字类上使用注解，测试者可以方便的以关键字的形式写作测试用例。
+Keyword是腾讯TMQ旗下实现关键字驱动测试的辅助组件，其封装了关键字所需要实现的Command接口及注解，通过在包上或关键字类上使用注解，测试者可以方便的以关键字的形式写作测试用例。
 #### 当前版本
 v1.0.0
 #### 模块介绍
 ##### api
 包括关键字接口Command，和三个注解Keyword、KeywordPackage和KeywordGenPackage。
-需要在测试工程中引用api模块。可以将api模块编译成jar包直接引用，Android Studio环境下也可以通过配置被测工程的gradle文件对已发布的api模块进行引用：
-```groovy
-dependencies {
-  androidTestCompile 'com.tencent.mig.tmq.keyword:api:1.0.0'
-}
-```
+需要在测试工程中引用api模块。可以将api模块编译成jar包直接引用，Android Studio环境下也可以通过配置被测工程的gradle文件对已发布的api模块进行引用。
 ##### compiler
 辅助被测工程在编译前自动生成使用关键字必须的K.java和TestContext.java文件。需要在被测工程中配置apt插件。
 ##### fakeapp
@@ -64,6 +59,7 @@ public class ActionWord1 implements Command {
 }
 ```
 2.编译，如未设置自动编译，请手动执行一下，这样会生成用例中要使用的K.java文件和TestContext.java文件。
+
 3.给用例设置一个父类，放置公共方法：
 ```java
 /**
@@ -112,14 +108,22 @@ public class DemoTest extends AbsApplicationTest {
 ##### KeywordPackage注解的使用方法
 如果关键字都放在指定的几个java包下，比如这样的包结构
 com.tencent.mig.tmq.fakeapp
+
     aaw
+    
     aw
+    
     kw
         Keyword1.java
+        
         Keyword2.java
+        
         Keyword3.java
+        
         Keyword4.java
+        
         package-info.java
+        
 kw包中的所有以Keyword开头的类都是关键字，此时没有必要给每个以Keyword开头的类都加Keyword注解，只要在kw包的包描述文件package-info.java上添加KeywordPackage注解，即代表kw包中声明的实现了Command接口的类都是关键字。
 ```java
 @KeywordPackage
