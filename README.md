@@ -107,22 +107,23 @@ public class DemoTest extends AbsApplicationTest {
 ```
 ##### KeywordPackage注解的使用方法
 如果关键字都放在指定的几个java包下，比如这样的包结构
-com.tencent.mig.tmq.fakeapp
 
-    aaw
+    com.tencent.mig.tmq.fakeapp
     
-    aw
+        aaw
     
-    kw
-        Keyword1.java
+        aw
+    
+        kw
+            Keyword1.java
         
-        Keyword2.java
+            Keyword2.java
         
-        Keyword3.java
+            Keyword3.java
         
-        Keyword4.java
+            Keyword4.java
         
-        package-info.java
+            package-info.java
         
 kw包中的所有以Keyword开头的类都是关键字，此时没有必要给每个以Keyword开头的类都加Keyword注解，只要在kw包的包描述文件package-info.java上添加KeywordPackage注解，即代表kw包中声明的实现了Command接口的类都是关键字。
 ```java
