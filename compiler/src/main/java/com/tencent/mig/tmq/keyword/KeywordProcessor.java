@@ -107,7 +107,8 @@ public class KeywordProcessor extends AbstractProcessor {
                 if (e.getKind() == ElementKind.CLASS)
                 {
                     // 确认是实现的Command接口，则将其加入有效的Keyword集
-                    if (isInheritFromCommand((TypeElement)e))
+                    if (!e.getModifiers().contains(Modifier.ABSTRACT)
+                            && isInheritFromCommand((TypeElement)e))
                     {
                         levelKwSet.add(new KeywordAnnotatedClass(packageElement, (TypeElement) e));
                     }
@@ -132,8 +133,9 @@ public class KeywordProcessor extends AbstractProcessor {
                 keyMap.put(level, levelKwSet);
             }
 
-            // 确认是实现的Command接口，则将其加入有效的Keyword集
-            if (isInheritFromCommand((TypeElement)annotatedElement))
+            // 确认是实现的Command接口并且不是抽象类，则将其加入有效的Keyword集
+            if (!annotatedElement.getModifiers().contains(Modifier.ABSTRACT)
+                    && isInheritFromCommand((TypeElement)annotatedElement))
             {
                 levelKwSet.add(new KeywordAnnotatedClass((TypeElement)annotatedElement));
             }
