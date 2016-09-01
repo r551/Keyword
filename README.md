@@ -2,7 +2,7 @@
 #### Headers
 Keyword是腾讯TMQ旗下实现关键字驱动测试的辅助组件，其封装了关键字所需要实现的Command接口及注解，通过在包上或关键字类上使用注解，测试者可以方便的以关键字的形式写作测试用例。
 #### 当前版本
-v1.0.0
+v1.0.2
 #### 模块介绍
 ##### api
 包括关键字接口Command，和三个注解Keyword、KeywordPackage和KeywordGenPackage。
@@ -37,8 +37,8 @@ apply plugin: 'com.neenbedankt.android-apt'
 ```groovy
 dependencies {
     // 在Android测试中使用的场景，要像下面这样分别配置Android测试的依赖和apt引用方式
-    androidTestCompile 'com.tencent.mig.tmq:keyword-api:1.0.1'
-    androidTestApt 'com.tencent.mig.tmq:keyword-compiler:1.0.1'
+    androidTestCompile 'com.tencent.mig.tmq:keyword-api:1.0.2'
+    androidTestApt 'com.tencent.mig.tmq:keyword-compiler:1.0.2'
 }
 ```
 4.在Android测试的场景下，别忘了在defaultConfig中配置测试执行器：
