@@ -105,6 +105,16 @@ public class DemoTest extends AbsApplicationTest {
     }
 }
 ```
+5.如果需要关键字调用可以嵌套，可以增加一个抽象AW的实现：
+```java
+public abstract class AbstractCommand implements Command {
+
+    protected Object execute(K cmd, Object... params)
+    {
+        return TestContext.awMap.get(cmd).execute(params);
+    }
+}
+```
 ##### KeywordPackage注解的使用方法
 如果关键字都放在指定的几个java包下，比如这样的包结构
 
