@@ -39,6 +39,8 @@ dependencies {
     // 在Android测试中使用的场景，要像下面这样分别配置Android测试的依赖和apt引用方式
     androidTestCompile 'com.tencent.mig.tmq:keyword-api:1.0.2'
     androidTestApt 'com.tencent.mig.tmq:keyword-compiler:1.0.2'
+    // 使用javapoet辅助生成关键字的Java配置文件K.java和TestContext.java
+    androidTestCompile 'com.squareup:javapoet:1.7.0'
 }
 ```
 4.在Android测试的场景下，别忘了在defaultConfig中配置测试执行器：
